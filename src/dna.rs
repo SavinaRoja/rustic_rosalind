@@ -14,7 +14,7 @@ impl fmt::Display for DNACounts {
     }
 }
 
-pub fn dna(input: String) -> DNACounts {
+pub fn dna(input: &String) -> DNACounts {
 
     let mut counts = DNACounts{ a: 0, c: 0, g: 0, t: 0 };
 
@@ -36,29 +36,31 @@ mod tests {
 
     #[test]
     fn dna_empty() {
-        let vals = dna(String::new());
+        let vals = dna(&String::new());
         assert_eq!(vals, DNACounts{ a: 0, c: 0, g: 0, t: 0});
     }
+
     #[test]
     fn dna_one_of_each() {
-        let vals = dna(String::from("ACGT"));
+        let vals = dna(&String::from("ACGT"));
         assert_eq!(vals, DNACounts{ a: 1, c: 1, g: 1, t: 1});
     }
 
     #[test]
     fn dna_one_of_each_with_noise() {
-        let vals = dna(String::from("1A.C-GaTh]"));
+        let vals = dna(&String::from("1A.C-GaTh]"));
         assert_eq!(vals, DNACounts{ a: 1, c: 1, g: 1, t: 1});
     }
     #[test]
     fn dna_none_with_noise() {
-        let vals = dna(String::from("123><?[]eleminnow"));
+        let vals = dna(&String::from("123><?[]eleminnow"));
         assert_eq!(vals, DNACounts{ a: 0, c: 0, g: 0, t: 0});
     }
 
+    #[test]
     fn dna_with_a_full_dataset() {
         let vals = dna(
-            String::from("\
+            &String::from("\
 ATGGCCAAATCCCTCTTACAATGAATAGTTGTGAATTATACACATGTGACTTTAGTAAGCCTTAAACTGATGCGTAAAG\
 ATGAGCACAGCAGAGTGATGCGTTATGGATTGTCATAGTCCCAAGGGCTCTACGGATAATTGGTCAGGGATGGTTATCT\
 TCTGGTGACGGGCGCCGATTCTTGAATCAGAGCCGTCGCACCCATTAACGCTTGAAGGTCGATTCCTTTCGAGTATTGC\

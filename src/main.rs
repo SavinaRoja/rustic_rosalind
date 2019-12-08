@@ -1,21 +1,12 @@
 use std::fs;
 
-use rosalind::dna;
+use rosalind::{dna, rna};
 
 #[macro_use]
 extern crate clap;
 use clap::App;
 
-fn rna(filename: &str) {
-    let file_contents = fs::read_to_string(filename).unwrap();
-    let translated: String = file_contents.chars().map(|x| {
-        match x {
-            'T' => {'U'},
-            _ => {x}
-        }
-    }).collect();
-    println!("{}", translated);
-}
+
 
 fn main() {
     let yaml = load_yaml!("cli.yaml");
@@ -27,12 +18,12 @@ fn main() {
         Some("dna") => {
             let input_file = matches.subcommand_matches("dna").unwrap().value_of("input").unwrap();
             let contents = fs::read_to_string(input_file).unwrap();
-            let vals = dna(contents);
-            println!("{}", vals);
+            println!("{}", dna(&contents));
         },
         Some("rna") => {
             let input_file = matches.subcommand_matches("rna").unwrap().value_of("input").unwrap();
-            rna(input_file);
+            let contents = fs::read_to_string(input_file).unwrap();
+            println!("{}", rna(&contents));
         },
         _ => {},
     }
