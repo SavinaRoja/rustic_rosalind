@@ -1,0 +1,23 @@
+name: Rosalind Problem Solver
+version: "0.0.0"
+author: Paul Barton <pablo.barton@gmail.com>
+about: Solves problems from rosalind.info. Subcommands for problem by id
+subcommands:
+  - dna:
+      about: Count DNA Bases http://rosalind.info/problems/dna/
+      version: "0.0.1"
+      author: Paul Barton <pablo.barton@gmail.com>
+      args:
+        - input:
+            required: true
+            index: 1
+            help: rosalind dna some_file.txt
+  - rna:
+      about: Translate DNA Bases to RNA http://rosalind.info/problems/rna/
+      version: "0.0.1"
+      author: Paul Barton <pablo.barton@gmail.com>
+      args:
+        - input:
+            required: true
+            index: 1
+            help: rosalind rna some_file.txt
