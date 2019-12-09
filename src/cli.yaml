@@ -15,10 +15,14 @@ subcommands:
         - input:
             required: true
             index: 1
+  - gc:
+      about: Computing GC content in fasta seqs http://rosalind.info/problems/gc/
+      args:
+        - input:
+            required: true
+            index: 1
   - rna:
       about: Translate DNA Bases to RNA http://rosalind.info/problems/rna/
-      version: "0.0.1"
-      author: Paul Barton <pablo.barton@gmail.com>
       args:
         - input:
             required: true

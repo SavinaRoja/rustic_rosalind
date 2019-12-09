@@ -1,4 +1,4 @@
-use rosalind::{dna, fib, rna, revc};
+use rosalind::{dna, fib, rna, revc, gc};
 
 #[macro_use]
 extern crate clap;
@@ -20,6 +20,9 @@ fn main() {
         },
         Some("fib") => {
             println!("{}", fib::fib(fib::file_parse(get_input(&matches, "fib"))));
+        },
+        Some("gc") => {
+            println!("{}", gc::gc(gc::file_parse(get_input(&matches, "gc"))));
         },
         Some("rna") => {
             println!("{}", rna::rna(&rna::file_parse(get_input(&matches, "rna"))));
