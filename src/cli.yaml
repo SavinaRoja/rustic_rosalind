@@ -12,6 +12,15 @@ subcommands:
             required: true
             index: 1
             help: rosalind dna some_file.txt
+  - fib:
+      about: Fibonacci reccurrence relations http://rosalind.info/problems/fib/
+      version: "0.0.1"
+      author: Paul Barton <pablo.barton@gmail.com>
+      args:
+        - input:
+            required: true
+            index: 1
+            help: rosalind fib some_file.txt
   - rna:
       about: Translate DNA Bases to RNA http://rosalind.info/problems/rna/
       version: "0.0.1"
