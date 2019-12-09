@@ -1,5 +1,3 @@
-use std::fs;
-
 use rosalind::{dna, fib, rna, revc};
 
 #[macro_use]
@@ -16,8 +14,6 @@ fn main() {
     let yaml = load_yaml!("cli.yaml");
     let matches = App::from(yaml).get_matches();
 
-//    let input_file = matches.value_of("input").unwrap();
-
     match matches.subcommand_name() {
         Some("dna") => {
             println!("{}", dna::dna(&dna::file_parse(get_input(&matches, "dna"))));
@@ -26,14 +22,10 @@ fn main() {
             println!("{}", fib::fib(fib::file_parse(get_input(&matches, "fib"))));
         },
         Some("rna") => {
-            let input_file = matches.subcommand_matches("rna").unwrap().value_of("input").unwrap();
-            let contents = fs::read_to_string(input_file).unwrap();
-            println!("{}", rna(&contents));
+            println!("{}", rna::rna(&rna::file_parse(get_input(&matches, "rna"))));
         },
         Some("revc") => {
-            let input_file = matches.subcommand_matches("revc").unwrap().value_of("input").unwrap();
-            let contents = fs::read_to_string(input_file).unwrap();
-            println!("{}", revc(&contents));
+            println!("{}", revc::revc(&revc::file_parse(get_input(&matches, "revc"))));
         },
         _ => {},
     }

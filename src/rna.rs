@@ -1,3 +1,9 @@
+use std::fs;
+
+pub fn file_parse(input_filename: &str) -> String {
+    let contents = fs::read_to_string(input_filename).unwrap();
+    return contents
+}
 
 pub fn rna(input: &String) -> String {
     let translated: String = input.chars().map(|x| {
