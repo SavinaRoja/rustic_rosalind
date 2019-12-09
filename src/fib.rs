@@ -18,8 +18,7 @@ pub fn fib((n, k) : (u32, u32)) -> u32 {
         return a
     } else if n == 2 {
         return b
-    }
-    else {
+    } else {
         for _ in 0..n-2 {
             c = b;
             b = a * k + b;

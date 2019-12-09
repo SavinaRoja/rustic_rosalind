@@ -1,11 +1,15 @@
 use std::fs;
 
-use rosalind::{dna, rna, revc};
-use rosalind::fib;
+use rosalind::{dna, fib, rna, revc};
 
 #[macro_use]
 extern crate clap;
-use clap::App;
+use clap::{App, ArgMatches};
+
+
+fn get_input<'a>(matches: &'a ArgMatches, subc_name: &'a str) -> &'a str {
+    return matches.subcommand_matches(subc_name).unwrap().value_of("input").unwrap()
+}
 
 
 fn main() {
@@ -16,13 +20,10 @@ fn main() {
 
     match matches.subcommand_name() {
         Some("dna") => {
-            let input_file = matches.subcommand_matches("dna").unwrap().value_of("input").unwrap();
-            let contents = fs::read_to_string(input_file).unwrap();
-            println!("{}", dna(&contents));
+            println!("{}", dna::dna(&dna::file_parse(get_input(&matches, "dna"))));
         },
         Some("fib") => {
-            let input_file = matches.subcommand_matches("fib").unwrap().value_of("input").unwrap();
-            println!("{}", fib(fib::file_parse(input_file)));
+            println!("{}", fib::fib(fib::file_parse(get_input(&matches, "fib"))));
         },
         Some("rna") => {
             let input_file = matches.subcommand_matches("rna").unwrap().value_of("input").unwrap();

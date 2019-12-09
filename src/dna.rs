@@ -1,4 +1,10 @@
 use std::fmt;
+use std::fs;
+
+pub fn file_parse(input_filename: &str) -> String {
+    let contents = fs::read_to_string(input_filename).unwrap();
+    return contents
+}
 
 #[derive(Debug, PartialEq)]
 pub struct DNACounts {

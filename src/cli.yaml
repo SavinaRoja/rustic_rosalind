@@ -5,22 +5,16 @@ about: Solves problems from rosalind.info. Subcommands for problem by id
 subcommands:
   - dna:
       about: Count DNA Bases http://rosalind.info/problems/dna/
-      version: "0.0.1"
-      author: Paul Barton <pablo.barton@gmail.com>
       args:
         - input:
             required: true
             index: 1
-            help: rosalind dna some_file.txt
   - fib:
       about: Fibonacci reccurrence relations http://rosalind.info/problems/fib/
-      version: "0.0.1"
-      author: Paul Barton <pablo.barton@gmail.com>
       args:
         - input:
             required: true
             index: 1
-            help: rosalind fib some_file.txt
   - rna:
       about: Translate DNA Bases to RNA http://rosalind.info/problems/rna/
       version: "0.0.1"
@@ -29,13 +23,9 @@ subcommands:
         - input:
             required: true
             index: 1
-            help: rosalind rna some_file.txt
   - revc:
       about: Reverse complement a DNA string http://rosalind.info/problems/revc/
-      version: "0.0.1"
-      author: Paul Barton <pablo.barton@gmail.com>
       args:
         - input:
             required: true
             index: 1
-            help: rosalind revc some_file.txt
