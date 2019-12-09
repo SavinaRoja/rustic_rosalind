@@ -21,3 +21,12 @@ subcommands:
             required: true
             index: 1
             help: rosalind rna some_file.txt
+  - revc:
+      about: Reverse complement a DNA string http://rosalind.info/problems/revc/
+      version: "0.0.1"
+      author: Paul Barton <pablo.barton@gmail.com>
+      args:
+        - input:
+            required: true
+            index: 1
+            help: rosalind revc some_file.txt

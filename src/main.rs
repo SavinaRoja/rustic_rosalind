@@ -1,6 +1,6 @@
 use std::fs;
 
-use rosalind::{dna, rna};
+use rosalind::{dna, rna, revc};
 
 #[macro_use]
 extern crate clap;
@@ -24,6 +24,11 @@ fn main() {
             let input_file = matches.subcommand_matches("rna").unwrap().value_of("input").unwrap();
             let contents = fs::read_to_string(input_file).unwrap();
             println!("{}", rna(&contents));
+        },
+        Some("revc") => {
+            let input_file = matches.subcommand_matches("revc").unwrap().value_of("input").unwrap();
+            let contents = fs::read_to_string(input_file).unwrap();
+            println!("{}", revc(&contents));
         },
         _ => {},
     }
