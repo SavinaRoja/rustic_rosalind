@@ -46,9 +46,9 @@ fn main() {
             println!("{}", rna::rna(&rna::file_parse(get_input(&matches, "rna"))));
         },
         Some("revc") => {
-//            let problem = revc::Problem::new();
-//            print_solved_problem(&matches, "revc", problem);
-            println!("{}", revc::revc(&revc::file_parse(get_input(&matches, "revc"))));
+            let problem = revc::Problem::new();
+            print_solved_problem(&matches, "revc", problem);
+//            println!("{}", revc::revc(&revc::file_parse(get_input(&matches, "revc"))));
         },
         _ => {},
     }
