@@ -1,9 +1,44 @@
+use std::fmt;
 use std::fs;
+use super::Solvable;
+use std::fmt::{Formatter, Error};
 
-pub fn file_parse(input_filename: &str) -> String {
-    let contents = fs::read_to_string(input_filename).unwrap();
-    return contents
+pub type Problem = RNAResult;
+
+#[derive(Debug, PartialEq)]
+pub struct RNAResult {
+    val: String,
 }
+
+impl fmt::Display for Problem {
+    fn fmt(&self, f: &mut Formatter<'_>) -> Result<(), Error> {
+        write!(f, "{}", self.val)
+    }
+}
+
+impl Problem {
+    pub fn new() -> Problem {
+        return Problem { val: String::new() }
+    }
+}
+
+impl Solvable for Problem {
+    type Parameters = String;
+
+    fn file_parse(&self, input_filename: &str) -> Self::Parameters {
+        return fs::read_to_string(input_filename).unwrap();
+    }
+
+    fn get_solution(&mut self, params: Self::Parameters) {
+        self.val = params.chars().map(|x| {
+            match x {
+                'T' => {'U'},
+                _ => {x}
+            }
+        }).collect();
+    }
+}
+
 
 pub fn rna(input: &String) -> String {
     let translated: String = input.chars().map(|x| {
@@ -21,24 +56,34 @@ mod tests {
 
     #[test]
     fn rna_empty() {
-        assert_eq!(rna(&String::new()), String::new());
+        let mut problem = Problem::new();
+        problem.get_solution(String::new());
+        assert_eq!(problem, Problem { val: String::new() });
     }
 
     #[test]
     fn rna_no_action() {
+        let mut problem = Problem::new();
         let input = String::from("ACGACG");
-        assert_eq!(rna(&input), input);
+        let copy = input.clone();
+        problem.get_solution(input);
+        assert_eq!(problem, Problem { val: copy });
     }
 
     #[test]
     fn rna_minimal_action() {
-        assert_eq!(rna(&String::from("T")), String::from("U"))
+        let mut problem = Problem::new();
+        problem.get_solution(String::from("T"));
+        assert_eq!(problem, Problem { val: String::from("U") });
     }
 
     #[test]
     fn rna_simple() {
         let input = String::from("ACGTACGT");
-        assert_eq!(rna(&input), String::from("ACGUACGU"));
+        let result = String::from("ACGUACGU");
+        let mut problem = Problem::new();
+        problem.get_solution(input);
+        assert_eq!(problem, Problem { val: result });
     }
 
     #[test]
@@ -69,6 +114,8 @@ UGAUCGGUAACUUGCACCCUUCAGCCCCCUUAUAAACAGCAGCAAUACUAGGAUAUACGUUCUUCGUAUUCAAUCAUCC\
 UAUCAUCUAAUCCAUUAGGCUUUCCGCUCUGUUUACCAUCAUACCCACAGAGGCCAGCAGCCCUUCUGCUUACGAAGCC\
 CUGUAACCAAAGUAGUGGGGUUGCCGUUUUUCAUCCGAGAUGAACGCCAGACCCCGCGCACUUCGCCCGGUUGCGUUCC\
 AAUUACAGUCAUCUUGUGAUAAGUCCGGGGUACAGGGCACCGGUGCUCCGAGG");
-        assert_eq!(rna(&input), result);
+        let mut problem = Problem::new();
+        problem.get_solution(input);
+        assert_eq!(problem, Problem { val: result });
     }
 }
