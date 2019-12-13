@@ -35,11 +35,11 @@ and the modules for solvers.
 The `lib.rs` file exposes the solver interfaces.
 
 Each problem is given a module file. So the solver for "dna" can be found in
-`./src/dna.rs`. Each module should provide a file parser that produces suitable
-results for ingestion by the solver function that it also provides. The solver
-in turn should produce a result that implements `std::fmt::Display` such that
-the printed output is a solution that can be uploaded to Rosalind. Most of these
-modules should also have some tests!
+`./src/dna/mod.rs`. By convention, each module should provide a type called
+`Problem`. This type should implement the `Solvable` trait. Implementing that
+trait requires a `file_parse` method that returns parameters suitable for
+the other required method: `solve`. Finally the `Problem` should implement
+`std::fmt::Display` so that the solution to the problem may be printed.
 
 ## About the author
 
