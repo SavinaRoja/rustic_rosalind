@@ -1,9 +1,10 @@
 use rosalind::{Solvable,
                dna,
                fib,
+               gc,
+               hamm,
                rna,
-               revc,
-               gc};
+               revc};
 
 use std::fmt::Display;
 
@@ -33,6 +34,10 @@ fn main() {
         Some("gc") => {
             let problem = gc::Problem::new();
             print_solved_problem(&matches, "gc", problem);
+        },
+        Some("hamm") => {
+            let problem = hamm::Problem::new();
+            print_solved_problem(&matches, "hamm", problem);
         },
         Some("rna") => {
             let problem = rna::Problem::new();

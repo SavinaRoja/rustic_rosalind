@@ -21,6 +21,12 @@ subcommands:
         - input:
             required: true
             index: 1
+  - hamm:
+      about: Computing Hamming distances in seqs http://rosalind.info/problems/hamm/
+      args:
+        - input:
+            required: true
+            index: 1
   - rna:
       about: Translate DNA Bases to RNA http://rosalind.info/problems/rna/
       args:
