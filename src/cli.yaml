@@ -27,6 +27,12 @@ subcommands:
         - input:
             required: true
             index: 1
+  - iprb:
+      about: Computing Mendelian probability http://rosalind.info/problems/iprb/
+      args:
+        - input:
+            required: true
+            index: 1
   - rna:
       about: Translate DNA Bases to RNA http://rosalind.info/problems/rna/
       args:

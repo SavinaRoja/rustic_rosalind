@@ -3,6 +3,7 @@ use rosalind::{Solvable,
                fib,
                gc,
                hamm,
+               iprb,
                rna,
                revc};
 
@@ -38,6 +39,10 @@ fn main() {
         Some("hamm") => {
             let problem = hamm::Problem::new();
             print_solved_problem(&matches, "hamm", problem);
+        },
+        Some("iprb") => {
+            let problem = iprb::Problem::new();
+            print_solved_problem(&matches, "iprb", problem);
         },
         Some("rna") => {
             let problem = rna::Problem::new();
