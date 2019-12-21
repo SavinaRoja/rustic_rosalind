@@ -3,8 +3,10 @@ pub mod fib;
 pub mod gc;
 pub mod hamm;
 pub mod iprb;
+pub mod prot;
 pub mod revc;
 pub mod rna;
+pub mod subs;
 
 
 /// Each of the submodules for problem solvers should have a type called Problem

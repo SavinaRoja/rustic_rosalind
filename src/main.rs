@@ -1,11 +1,15 @@
-use rosalind::{Solvable,
-               dna,
-               fib,
-               gc,
-               hamm,
-               iprb,
-               rna,
-               revc};
+use rosalind::{
+    Solvable,
+    dna,
+    fib,
+    gc,
+    hamm,
+    iprb,
+    prot,
+    rna,
+    revc,
+    subs,
+};
 
 use std::fmt::Display;
 
@@ -44,6 +48,10 @@ fn main() {
             let problem = iprb::Problem::new();
             print_solved_problem(&matches, "iprb", problem);
         },
+        Some("prot") => {
+            let problem = prot::Problem::new();
+            print_solved_problem(&matches, "prot", problem);
+        },
         Some("rna") => {
             let problem = rna::Problem::new();
             print_solved_problem(&matches, "rna", problem);
@@ -51,6 +59,10 @@ fn main() {
         Some("revc") => {
             let problem = revc::Problem::new();
             print_solved_problem(&matches, "revc", problem);
+        },
+        Some("subs") => {
+            let problem = subs::Problem::new();
+            print_solved_problem(&matches, "subs", problem);
         },
         _ => {},
     }

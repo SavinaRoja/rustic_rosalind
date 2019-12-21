@@ -33,6 +33,12 @@ subcommands:
         - input:
             required: true
             index: 1
+  - prot:
+      about: Translating RNA to Protein http://rosalind.info/problems/prot/
+      args:
+        - input:
+            required: true
+            index: 1
   - rna:
       about: Translate DNA Bases to RNA http://rosalind.info/problems/rna/
       args:
@@ -41,6 +47,12 @@ subcommands:
             index: 1
   - revc:
       about: Reverse complement a DNA string http://rosalind.info/problems/revc/
+      args:
+        - input:
+            required: true
+            index: 1
+  - subs:
+      about: Searching for instancs of substring http://rosalind.info/problems/subs/
       args:
         - input:
             required: true
