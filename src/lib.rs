@@ -3,6 +3,8 @@ pub mod fib;
 pub mod gc;
 pub mod hamm;
 pub mod iprb;
+pub mod kmp;
+pub mod prob;
 pub mod prot;
 pub mod revc;
 pub mod rna;

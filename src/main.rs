@@ -5,6 +5,8 @@ use rosalind::{
     gc,
     hamm,
     iprb,
+    kmp,
+    prob,
     prot,
     rna,
     revc,
@@ -47,6 +49,14 @@ fn main() {
         Some("iprb") => {
             let problem = iprb::Problem::new();
             print_solved_problem(&matches, "iprb", problem);
+        },
+        Some("kmp") => {
+            let problem = kmp::Problem::new();
+            print_solved_problem(&matches, "kmp", problem);
+        },
+        Some("prob") => {
+            let problem = prob::Problem::new();
+            print_solved_problem(&matches, "prob", problem);
         },
         Some("prot") => {
             let problem = prot::Problem::new();

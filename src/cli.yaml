@@ -33,6 +33,18 @@ subcommands:
         - input:
             required: true
             index: 1
+  - kmp:
+      about: Computing failure table for Knuth-Morris-Pratt http://rosalind.info/problems/kmp/
+      args:
+        - input:
+            required: true
+            index: 1
+  - prob:
+      about: Computing probability of random sequences given GC content http://rosalind.info/problems/prob/
+      args:
+        - input:
+            required: true
+            index: 1
   - prot:
       about: Translating RNA to Protein http://rosalind.info/problems/prot/
       args:
